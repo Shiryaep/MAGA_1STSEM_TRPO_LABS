@@ -1,0 +1,2 @@
+#Usage: ". run.txt"
+docker run --name ubuntu-apache2 -p 80:80 -p 5000:5000 -v "$(pwd):/var/www/html/test" -it nomiram/ubuntu-apache2:v4 /bin/bash -c "/etc/init.d/apache2 start & /bin/bash"

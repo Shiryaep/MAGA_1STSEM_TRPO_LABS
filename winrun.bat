@@ -1,0 +1,2 @@
+@start /B /I /WAIT pwsh -NoExit -Command {& docker run -p 80:80 -v "$((pwd).path -replace '\\', '/'):/var/www/html/test" -it nomiram/ubuntu-apache2:v3 /bin/bash -c "/etc/init.d/apache2 start & /bin/bash" } 
+pause

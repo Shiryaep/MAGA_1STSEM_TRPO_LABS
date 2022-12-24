@@ -1,0 +1,1 @@
+while true;do watch -d -t -g ls -lR && g++ cgi_handler.cpp HTTP.cpp -o test.cgi;done;
