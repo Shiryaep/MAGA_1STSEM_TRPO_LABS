@@ -4,8 +4,8 @@
 #include <cstring>
 #include <sstream>
 #include "HTTP.hpp"
-#include "db.hpp"
-#include "db.cpp"
+#include "db_header.hpp"
+#include "db_functions.cpp"
 using namespace std;
 int main()
 {
@@ -22,9 +22,13 @@ int main()
         std::string res = db.read_one(getparam);
         if (res != ""){
             std::string outStr_New_01 = "<table><tr><th>Key</th><th>Value</th><th>Delete</th></tr>";
-            std::string outStr_New_02 = "<td>" + http.escaping(getparam) + "</td><td>" + http.escaping(res) + "</td></tr></table>";
+            std::string outStr_New_02 = "<tr><td>" + http.escaping(getparam) + "</td><td>" + http.escaping(res) + "</td>";
             //cout <<"{ \"" << http.escaping(getparam) << "\": \"" <<http.escaping(res) << "\"}";
-            cout << outStr_New_01 + outStr_New_02;
+            cout << outStr_New_01;
+            cout << outStr_New_02;
+            cout << "<td><form enctype=\"application/x-www-form-urlencoded\" method=\"post\"><input id=\"keyinpgetall\" name=\"erase\" value=\"";
+            cout << getparam;
+            cout << "\" hidden=\"hidden\"><input type=\"submit\" value=\"Delete this line\"></form></td></tr></table>";
         }
     }
     if (getallparam != ""){

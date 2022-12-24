@@ -1,7 +1,7 @@
 .PHONY: all
-all: db test files
-db:
-	g++ db.cpp HTTP.cpp working_with_db.cpp  -o db.cgi
+all: dbWork test files
+dbWork:
+	g++ db_functions.cpp HTTP.cpp db_MAIN.cpp -o dbWork.cgi
 test:
 	g++ HTTP.cpp cgi_handler.cpp -o test.cgi
 files:

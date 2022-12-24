@@ -1,6 +1,6 @@
 #ifndef __DB__CPP__CLASS__
 #define __DB__CPP__CLASS__
-#include "db.hpp"
+#include "db_header.hpp"
 #include <errno.h>
 #include <fstream>
 template<typename KeyType, typename ValType>
