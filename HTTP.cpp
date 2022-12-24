@@ -52,11 +52,22 @@ std::string HTTP::httpPost(std::string name){
 std::string HTTP::getCookie(std::string name){
     return this->cookie[name];
 }
-std::string HTTP::setCookie(std::string name, std::string value){
+std::string HTTP::setCookie(std::string name, std::string value)
+{
     this->outcookie[name] = value;
     return value;
 }
-void HTTP::init(){
+std::string HTTP::getHeader(std::string name)
+{
+    return getenv(name.c_str());
+}
+UploadedFile HTTP::getFile(std::string name)
+{
+    return filesData[name];
+}
+
+void HTTP::init()
+{
     // redirecting cout stream to string stream
     std::streambuf *x = std::cout.rdbuf(this->OUT.rdbuf());
 }
