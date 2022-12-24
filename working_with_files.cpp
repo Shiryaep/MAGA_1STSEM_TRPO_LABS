@@ -8,8 +8,8 @@
 #include <cstring>
 #include <cerrno>
 #include "HTTP.hpp"
-#include "db.hpp"
-#include "db.cpp"
+#include "db_header.hpp"
+#include "db_functions.cpp"
 using namespace std;
 int main()
 {

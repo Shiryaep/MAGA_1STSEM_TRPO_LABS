@@ -245,30 +245,34 @@ std::string HTTP::rawURLDecode(std::string str)
   std::string res = "";
   for (int i = 0; i < str.length (); i++)
     {
-      if (str[i] != '%')
-	{
-	  res.append(1, str[i]);
-	}
-      if (str[i] == '%')
-	{
-	    i++;  // skip '%'
-        res.append(1, static_cast<char>(CCtoI(str[i], str[i + 1])));
-        i++;  // skip one hex (other hex will be skiped by i++ in for)
-        continue;
-	}
+        if (str[i] != '%')
+	    {
+	        res.append(1, str[i]);
+	    }
+        if (str[i] == '%')
+	    {
+	        i++;  // skip '%'
+            res.append(1, static_cast<char>(CCtoI(str[i], str[i + 1])));
+            i++;  // skip one hex (other hex will be skiped by i++ in for)
+            continue;
+	    }
     }
   return res;
 }
 
 unsigned int HTTP::CtoI(char ch){
-    if (ch >= 'A'){
-	      return static_cast<int>(ch - 'A' + 10);
-	  }else{
-	      return static_cast<int>(ch - '0');
-	  }
+    if (ch >= 'A')
+    {
+	    return static_cast<int>(ch - 'A' + 10);
+	}
+    else
+    {
+	    return static_cast<int>(ch - '0');
+	}
 }
 
-unsigned int HTTP::CCtoI(char ch1, char ch2){
+unsigned int HTTP::CCtoI(char ch1, char ch2)
+{
     return ((CtoI(ch1) << 4) + CtoI(ch2));
 }
 

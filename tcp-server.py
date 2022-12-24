@@ -87,8 +87,8 @@ def parseHeaders(httpdata):
         # NOT DEBUG PRINT method + url
         print(method, url, end=' ',flush=True)
 
-    if not os.path.exists(url):
-        return HTTPStatus.NOT_FOUND, DEF404SENDDATA
+    #if not os.path.exists(url):
+    #    return HTTPStatus.NOT_FOUND, DEF404SENDDATA
     ext = os.path.splitext(path)[-1].lower()
     if ext in CGIEXT:
         if DEBUG:
