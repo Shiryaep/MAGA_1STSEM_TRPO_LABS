@@ -6,16 +6,18 @@
 #include <cstring>
 #include <sstream>
 #include <map>
-class HTTP
-{
-   public:
-	typedef struct {
+
+typedef struct {
 		std::string filename; 	// реальное имя файла
 		std::string type;	// MIME-тип файла
 		std::string tmp_name; // временное имя файла
 		int error; 	// код ошибки (0, если нет)
 		int size; 	// размер загружаемого файла
 	} UploadedFile;
+
+class HTTP
+{
+   public:
 	std::map<std::string, int> INTCONFIG = {{"MAX_FILESIZE",2048}};
 
     std::map<std::string, std::string> getparams;

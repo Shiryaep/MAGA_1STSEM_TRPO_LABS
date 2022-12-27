@@ -61,10 +61,10 @@ std::string HTTP::getHeader(std::string name)
 {
     return getenv(name.c_str());
 }
-/*UploadedFile HTTP::getFile(std::string name)
+UploadedFile HTTP::getFile(std::string name)
 {
     return filesData[name];
-}*/
+}
 
 void HTTP::init()
 {

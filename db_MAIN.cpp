@@ -17,6 +17,16 @@ int main()
     if(http.httpGet("gui")!="false"){
         http.httpSendFile("db.html");
     }
+    std::string eraseparam = string(http.httpPost("erase"));
+    int res = db.erase(http.rawURLDecode(eraseparam));
+    if (eraseparam != ""){
+        if (res == 0){
+            cout << "{\"status\": [201, \"OK\"]}";
+        }else{
+            cout << "{\"status\": [500, \"Server Error\"]}";
+        }
+    }
+
     if (getparam != ""){
         http.setCookie("get", getparam);
         std::string res = db.read_one(getparam);
@@ -73,14 +83,6 @@ int main()
     //     }
     // }
     
-    std::string eraseparam = string(http.httpPost("erase"));
-    int res = db.erase(http.rawURLDecode(eraseparam));
-    if (eraseparam != ""){
-        if (res == 0){
-            cout << "{\"status\": [201, \"OK\"]}";
-        }else{
-            cout << "{\"status\": [500, \"Server Error\"]}";
-        }
-    }
+
     http.send();
 }

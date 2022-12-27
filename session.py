@@ -100,7 +100,8 @@ class HTTP:
 
 http = HTTP()
 ses = Session()
-http.print('<a href="./"><button>Up</button></a>')
+http.print('<head><link href=\"styles.css\" rel=\"stylesheet\" type=\"text/css\"></head>')
+http.print('<a href="./"><button class=\"button-back\">Up</button></a>')
 if http.cookie.get('session'):
     ses.sessionID = http.cookie['session']
 else:
@@ -127,7 +128,7 @@ if http.get.get("logout"):
     ses.set('login','false')
     # http.send_file("login.html")
     http.print('logout')
-    http.print('<a href="session.py">click to login</a>')
+    http.print('<a href="session.py" class=\"button-standart\">click to login</a>')
     http.send()
     exit(0)
 
@@ -139,6 +140,6 @@ else:
     http.print("you are not admin!:( ")
 
 # http.print("you UID: ",ses.sessionID)
-http.print('<a href="session.py?logout=true">logout</a>')
+http.print('<a href="session.py?logout=true" class=\"button-delete\">logout</a>')
 
 http.send()

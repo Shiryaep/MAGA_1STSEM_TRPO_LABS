@@ -25,10 +25,10 @@ elif sys.platform == "win32":
 DEF404SENDDATA = b'''\
 Content-Type: text/html; charset=utf-8
 
-
+<head><link href="styles.css" rel="stylesheet" type="text/css"></head>
 <html>
 <body>
-<a href="./">GO BACK</a>
+<a href="./"><button class="button-back">GO BACK</button></a>
 <p> </p>
 <p>File Not Found!</p>
 </body>
@@ -154,18 +154,17 @@ def main():
     socketObj = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
     server_address = ('0.0.0.0', 5000)
-    #print(f'Старт сервера на {server_address[0]} порт {server_address[1]}')
     print(f'Starting server using ip=\'{server_address[0]}\' port=\'{server_address[1]}\'')
     socketObj.bind(server_address)
 
     socketObj.listen(1)
 
     while True:
-        print('Connection status \"waiting\"',end='',flush=True)
+        print('Connection status \"waiting\"',end='\n',flush=True)
         connection, client_address = socketObj.accept()
         try:
             now = datetime.datetime.now()
-            print(f'\r            \r>{now} ', client_address, end=' ',flush=True)
+            print(f'>- [{str(now)[:-3]}] ', end=' ',flush=True)
             while True:
                 datamas = []
                 data = b''
@@ -174,7 +173,7 @@ def main():
                 # data = drecv
                 # if method != 'GET':
                 while True:
-                    time.sleep(1) # waiting browser to send data
+                    time.sleep(0.7) # waiting browser to send data
                     drecv = connection.recv(2048)
                     # time.sleep(0.5)
                     data += drecv
@@ -188,14 +187,14 @@ def main():
                         print(i)
                     print('END\n',flush=True)
                 if data:
-                    print('...',end=' ',flush=True)
+                    print(' |',end=' ',flush=True)
                     code, senddata = parseHeaders(data.decode())
-                    print('>>>>',end=' ',flush=True)
+                    print('|\nType:',end=' ',flush=True)
                     # HTTP/1.1 200 OK
                     retdata =  HTTPVER+' '+str(code.value)+' '+code.phrase+'\n'
                     retdata = retdata.encode('utf8')
                     retdata += senddata
-                    print(code.value,code.phrase, datetime.datetime.now() - now ,end=' ',flush=True)
+                    print(code.value,code.phrase, "##Elapsed time:", str(datetime.datetime.now() - now)[:-3] ,end=' ',flush=True)
                     connection.sendall(retdata)
                     if DEBUG:
                         print(f'SEND: {len(retdata)}',flush=True)
@@ -204,12 +203,22 @@ def main():
                 else:
                     print('Нет данных от:', client_address,flush=True)
                     break
+        except KeyboardInterrupt:
+            connection.settimeout(5)
+            connection.close()
+            socketObj.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+            #socketObj.shutdown(socket.SHUT_RDWR)
+            #socketObj.close()
+            print("\nCLOSED CONNECTION\nBYE =)")
+            exit()
 
         finally:
             connection.close()
+            
 if __name__ == "__main__":
     while True:
         try:
             main()
-        except Exception as e:
-            print(e.with_traceback())
+        except KeyboardInterrupt:
+            print("\nCLOSED CONNECTION\nBYE =)")
+            exit()
