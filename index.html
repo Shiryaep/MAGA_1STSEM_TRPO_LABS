@@ -1,13 +1,23 @@
 <html>
+	<style>
+		table, th, td { border:0px solid black; font-family: "Segoe UI";}
+   	th {padding: 8px 15px 8px 3px;}
+		td {padding: 1px 10px 1px 10px;}
+		
+		
+	</style>
 <head> 
 		<title>ТРПО</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-	</head>
+		<link href="styles.css" rel="stylesheet" type="text/css">
+</head>
 <body style="margin:0;">
-<a href='dbWork.cgi'>Работа с базой данных</a><br>
-<a href='watch_files.py'>Просмотр файлов</a><br>
-<a href='uploadFile.cgi'>Загрузка файлов</a><br>
-<a href='session.py'>Сессии</a><br>
+<table>
+	<tr><th>Работа "1"</th><th>Работа "2"</th><th>Работа "3"</th>
+	<tr><td><a href='dbWork.cgi'><button class="button-9">База данных</button></a><br></td>
+		 <td><a href='uploadFile.cgi'><button class="button-9">Загрузка файлов</button></a><br></td>
+		 <td><a href='session.py'><button class="button-9">Войти в учетную запись</button></a><br></td></tr>
+		<tr><td></td><td><a href='watch_files.py'><button class="button-9">Просмотр файлов</button></a><br></td><td></td></tr></table>
 </body>
 </html>

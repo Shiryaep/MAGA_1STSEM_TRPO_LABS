@@ -1,0 +1,12 @@
+MAKE NEW CONTAINER
+docker run --name trpo_1st_sem -p 80:80 -v "$((pwd).path -replace '\\', '/'):/var/www/html" -it shiryaep/trpo_1st_sem:latest /bin/bash -c "/etc/init.d/apache2 start & /bin/bash"
+
+GO TO FOLDER
+cd c:\Users\peche\OneDrive\01_UNIVERSITY_MAGA\1ST_SEM\TRPO\Files\
+
+START CONTAINER
+docker exec -it trpo_1st_sem_5000 bash
+
+START REDIS
+redis-server &
+

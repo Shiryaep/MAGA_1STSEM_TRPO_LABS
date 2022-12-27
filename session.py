@@ -100,7 +100,7 @@ class HTTP:
 
 http = HTTP()
 ses = Session()
-http.print('<a href="./">Up</a>')
+http.print('<a href="./"><button>Up</button></a>')
 if http.cookie.get('session'):
     ses.sessionID = http.cookie['session']
 else:
