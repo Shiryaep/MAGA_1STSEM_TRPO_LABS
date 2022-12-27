@@ -3,9 +3,10 @@
     <head>
       <meta charset="utf-8">
       <title>File Upload</title>
+      <link href="styles.css" rel="stylesheet" type="text/css">
     </head>
     <body>
-		<a href="./">Наверх</a>
+      <a href="./"><button class="button-back">Наверх</button></a><br><br>
         <form action="uploadFile.cgi" method="POST" enctype="multipart/form-data">
             <input type="file" name="myFile1">
             <br>
@@ -13,7 +14,7 @@
             <input type="file" name="myFile2">
             <br>
             <br>
-            <input type="submit" value="Загрузить">
+            <input class="button-addgetpost" type="submit" value="Загрузить">
         </form>
     </body>
 </html>

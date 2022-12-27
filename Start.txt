@@ -10,3 +10,5 @@ docker exec -it trpo_1st_sem_5000 bash
 START REDIS
 redis-server &
 
+Change directory linux
+cd var/www/html/

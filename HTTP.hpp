@@ -8,7 +8,7 @@
 #include <map>
 class HTTP
 {
-    public:
+   public:
 	typedef struct {
 		std::string filename; 	// реальное имя файла
 		std::string type;	// MIME-тип файла
@@ -23,6 +23,7 @@ class HTTP
     std::map<std::string, std::string> cookie;
     std::map<std::string, std::string> outcookie;
 	std::map <std::string, UploadedFile> filesData;
+	
 	protected:
 	std::map<std::string, std::string> escape = {
 		{"\"","\\&quot;"}, {"<","&lt;"}, {">","&gt;"}

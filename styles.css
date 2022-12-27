@@ -1,3 +1,12 @@
-.button-9 {background-color: #405cf5; border: 1px solid #32325d;
+.button-standart {background-color: #405cf5; border: 1px solid #32325d;
   border-radius: 6px; color: #fff; font-family: "Segoe UI"; font-size: 90%;
-  padding: 4px 8px; margin: 0px 4px 5px 4px;}
+  padding: 4px 8px; margin: 0px 4px 5px 4px; cursor: pointer;}
+.button-back {background-color: #53585a; border: 1px solid #1c1c2a;
+  border-radius: 6px; color: #fff; font-family: "Segoe UI"; font-size: 90%;
+  padding: 2px 10px; margin: 0px 4px 5px 4px; cursor: pointer;}
+.button-addgetpost {background-color: #5a70eb; border: 1px solid #36364d;
+  border-radius: 2px; color: #fff; font-family: "Segoe UI"; font-size: 90%;
+  padding: 1px 8px; margin: 0px 4px 3px 4px; cursor: pointer;}
+.button-delete {background-color: #cc4132; border: 1px solid #36364d;
+  border-radius: 2px; color: #fff; font-family: "Segoe UI"; font-size: 90%;
+  padding: 1px 8px; margin: 0px 4px 3px 4px; cursor: pointer;}

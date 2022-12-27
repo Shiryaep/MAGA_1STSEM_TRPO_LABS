@@ -28,7 +28,7 @@ int main()
             cout << outStr_New_02;
             cout << "<td><form enctype=\"application/x-www-form-urlencoded\" method=\"post\"><input id=\"keyinpgetall\" name=\"erase\" value=\"";
             cout << getparam;
-            cout << "\" hidden=\"hidden\"><input type=\"submit\" value=\"Delete this line\"></form></td></tr></table>";
+            cout << "\" hidden=\"hidden\"><input class=\"button-delete\" type=\"submit\" value=\"Delete this line\"></form></td></tr></table>";
         }
     }
     if (getallparam != ""){
@@ -47,7 +47,7 @@ int main()
             i++;
             cout << "<td><form enctype=\"application/x-www-form-urlencoded\" method=\"post\"><input id=\"keyinpgetall\" name=\"erase\" value=\"";
             cout << key;
-            cout << "\" hidden=\"hidden\"><input type=\"submit\" value=\"Delete this line\"></form></td></tr>";
+            cout << "\" hidden=\"hidden\"><input class=\"button-delete\"  type=\"submit\" value=\"Delete this line\"></form></td></tr>";
         }
         //cout << "}";
         cout << "</table>";

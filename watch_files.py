@@ -1,10 +1,10 @@
 #!/usr/bin/python3
 import os
 print("Content-Type: text/html; charset=utf-8\r\n\r\n")
+print("<style>h4{ font-family: \"Segoe UI\";} </style>")
 print()
-print()
-print()
-print("<a href='./'>Up</a><br>")
+print("<head><title>File Watch</title><link href=\"styles.css\" rel=\"stylesheet\" type=\"text/css\"></head>")
+print("<a href=\"./\"><button class=\"button-back\">Наверх</button></a><br>")
 # exit()
 FILESPATH = './usrfiles'
 os.chdir(FILESPATH)
@@ -24,7 +24,7 @@ for file in files:
     print(f'''
     <form action="watch_files.py" id="Form" enctype="application/x-www-form-urlencoded" method="post">
         <input id="keyinpgetall" name="delete" value="{file}" hidden="hidden">
-        <input type="submit" value="Delete this file">
+        <input class=\"button-delete\" type="submit" value="Delete this file">
     </form>
     ''')
     with(open(file,"r",encoding='utf8')) as f:
