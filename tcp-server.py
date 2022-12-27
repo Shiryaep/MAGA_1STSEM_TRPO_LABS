@@ -28,7 +28,8 @@ Content-Type: text/html; charset=utf-8
 
 <html>
 <body>
-<a href="./">Up</a>
+<a href="./">GO BACK</a>
+<p> </p>
 <p>File Not Found!</p>
 </body>
 </html>
@@ -150,17 +151,18 @@ def send_file(path):
            +filedata
 
 def main():
-    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    socketObj = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
     server_address = ('0.0.0.0', 5000)
-    print(f'Старт сервера на {server_address[0]} порт {server_address[1]}')
-    sock.bind(server_address)
+    #print(f'Старт сервера на {server_address[0]} порт {server_address[1]}')
+    print(f'Starting server using ip=\'{server_address[0]}\' port=\'{server_address[1]}\'')
+    socketObj.bind(server_address)
 
-    sock.listen(1)
+    socketObj.listen(1)
 
     while True:
-        print('waiting connection...',end='',flush=True)
-        connection, client_address = sock.accept()
+        print('Connection status \"waiting\"',end='',flush=True)
+        connection, client_address = socketObj.accept()
         try:
             now = datetime.datetime.now()
             print(f'\r            \r>{now} ', client_address, end=' ',flush=True)
